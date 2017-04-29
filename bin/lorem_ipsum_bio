@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+require 'lorem_ipsum_bio'
+
+n = ARGV[0].to_i
+print case ARGV[1..-1]
+when [] # TODO
+  ''
+when ['DNA'], ['dna']
+  LoremIpsumBio.random_DNA(n)
+when ['RNA'], ['rna']
+  LoremIpsumBio.random_RNA(n)
+when ['PROTEIN'], ['protein'], ['Protein'],
+     ['PROTEINS'], ['proteins'], ['Proteins'],
+     ['AA'], ['aa']
+  LoremIpsumBio.random_protein(n)
+else
+  LoremIpsumBio.random_string(n, ARGV[1..-1])
+end
